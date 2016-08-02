@@ -10,14 +10,68 @@ var queueName = 'purchaseorderqueue';
 
 module.exports.index = function(req, res) {
     res.sendFile(path.join(__dirname+'/index.html'));
-}
+};
 
 module.exports.queues = function(req, res) {
+    
     serviceBusService.listQueues(function(error, queues){
+        console.log('API: Listing queues');
         if(!error){
             res.json(queues);
         }
+    });  
+};
+
+module.exports.queue = function(req, res) {
+    serviceBusService.getQueue(queueName, function(error, queue) {
+        console.log('API: getting queue' + queueName);
+        if(error) {
+            console.log(error);
+        } else {
+	        res.json(queue);
+        }
     });
+}
+
+module.exports.receiveQueueMessage = function(req, res) {
+    
+    console.log('API: showing queue message(s) for queue ' +  queueName);
+    
+    var queue = module.exports.queue;
+    
+    if (queue) {
+        var noOfMessagesToReceive = queue.MessageCount < 10 ? queue.MessageCount : 10;
+        var messages = [];
+        for (var i = 0; i < noOfMessagesToReceive; i++) {
+	        serviceBusService.receiveQueueMessage(queueName, {isPeekLock: true}, function(error, receivequeuemessageresult) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(receivequeuemessageresult);
+                    messages += receivequeuemessageresult;
+                }
+            });    
+        }
+        res.json(messages);
+    }   
+};
+
+module.exports.createQueueMessage = function(req, res) {
+    console.log('API: Creating queue message on queue ' + queueName);
+    serviceBusService.sendQueueMessage(queueName, 'Send Message Works', function(error1) {
+    if (error1) {
+      console.log(error1);
+    } else {
+      console.log('Sent first Message');
+      serviceBusService.sendQueueMessage(queueName, 'Send Message Still Works', function(error2) {
+        if (error2) {
+          console.log(error2);
+        } else {
+          console.log('Sent Second Message');
+        }
+      });
+    }
+  });
 }
 
 /*

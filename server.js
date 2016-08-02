@@ -39,6 +39,9 @@ app.use(express.static(__dirname + '/app'));
 app.get('/', routes.index);
 
 app.get('/api/queues', routes.queues);
+app.get('/api/queue', routes.queue);
+app.get('/api/queueMessage', routes.receiveQueueMessage);
+app.post('/api/queueMessage', routes.createQueueMessage);
 
 // start app ===============================================
 // startup our app at http://localhost:8080
