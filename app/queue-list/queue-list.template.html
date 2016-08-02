@@ -1,0 +1,12 @@
+<!-- public/views/queues.html -->
+
+<div class="jumbotron text-center">
+    <h1>Service bus queues</h1>
+
+    <p>{{ tagline }}</p>
+    <ul>
+        <li ng-repeat="queue in $ctrl.queues">
+            {{queue.QueueName}} - {{queue.MessageCount}}
+        </li>
+  </ul>
+</div>

@@ -1,0 +1,28 @@
+{
+  "name": "servicebusexplorer",
+  "version": "0.0.0",
+  "description": "This is a node.js azure service bus explorer",
+  "main": "server.js",
+  "scripts": {
+    "test": "no test"
+  },
+  "keywords": [
+    "azure",
+    "service",
+    "bus",
+    "explorer"
+  ],
+  "author": "olof wallin",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "body-parser": "*",
+    "method-override": "*",
+    "csurf": "^1.9.0",
+    "express": "^4.14.0",
+    "forms": "^1.1.4",
+    "pug": "*",
+    "azure": "*",
+    "bower": "*"
+  }
+}

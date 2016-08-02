@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="ServiceBusExplorerApp">
+<head>
+    <meta charset="utf-8">
+    <title>ServiceBus Explorer</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+    
+    <!-- JS --> 
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+
+    <!-- ANGULAR CUSTOM --> 
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="queue-list/queue-list.module.js"></script>
+    <script src="queue-list/queue-list.component.js"></script>
+    <script src="queue-detail/queue-detail.module.js"></script>
+    <script src="queue-detail/queue-detail.component.js"></script>
+    <script src="core/queue/queue.module.js"></script>
+    <script src="core/queue/queue.service.js"></script>
+</head>
+<body>
+    Below is the angular crap
+    <div ng-view></div>
+</body>
+</html>

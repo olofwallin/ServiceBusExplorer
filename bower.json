@@ -1,0 +1,12 @@
+{
+    "name": "starter-node-angular",
+    "version": "1.0.0",
+    "dependencies": {
+        "bootstrap": "latest",
+        "font-awesome": "latest",
+        "animate.css": "latest",
+        "angular": "1.5.x",
+        "angular-route": "1.5.x",
+        "angular-resource": "1.5.x"   
+    }
+}
