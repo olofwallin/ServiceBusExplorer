@@ -1,7 +1,7 @@
 // modules =================================================
 var path = require('path');
 var azure = require('azure');
-var azureStorage = require('azure-storage');
+//var azureStorage = require('azure-storage'); //Not used??
 
 // azure configuration
 var azureConnection = 'Endpoint=sb://egax7learn-servicebus-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yY8WyMkFsHjakloLqhUkzJX2YzctlctrwTexTqwLf4E=';
